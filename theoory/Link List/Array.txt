@@ -1,0 +1,249 @@
+#######Insertion at the last#######
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a[10];
+    int i,n,item;
+    char k;
+
+    cout<<"Enter number of elements: ";
+    cin>>n;
+
+    cout<<"Enter array elements: ";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    cout<<"Insertion at the end: "<<endl;
+    do
+    {
+       cout<<"Input a number: ";
+       cin>>item;
+       a[n]=item;
+       n++;
+       cout<<"Do you insert more? [y/n] ";
+       cin>>k;
+    }while(k=='y'||k=='Y');
+
+    cout<<endl;
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<"Number of element: "<<n<<endl;
+}
+
+######Insertion at the middle#######
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a[10];
+    int i,n,item,p;
+    char k;
+
+    cout<<"Enter number of elements: ";
+    cin>>n;
+
+    cout<<"Enter array elements: ";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    cout<<"Insertion at the middle: "<<endl;
+    do
+    {
+        cout<<"Enter index number: ";
+        cin>>p;
+        cout<<"Enter value: ";
+        cin>>item;
+        for(i=n-1;i>=p;i--)
+        {
+            a[i+1]=a[i];
+        }
+        a[p]=item;
+        n++;
+        cout<<"Do you want to insert more?[y/n] ";
+        cin>>k;
+    }while(k=='y');
+
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<"Number of elements: "<<n<<endl;
+}
+
+########Insertion at the beginning########
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a[10];
+    int i,n,item,p;
+    char k;
+
+    cout<<"Enter number of elements: ";
+    cin>>n;
+
+    cout<<"Enter array elements: ";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    cout<<"Insertion at begin: "<<endl;
+    do
+    {
+        cout<<"Enter value: ";
+        cin>>item;
+        for(i=n-1;i>=0;i--)
+        {
+            a[i+1]=a[i];
+        }
+        a[0]=item;
+        n++;
+        cout<<"Do you want to insert more?[y/n] ";
+        cin>>k;
+    }while(k=='y');
+
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<"Number of elements: "<<n<<endl;
+}
+
+#########Deletion at last############
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a[10];
+    int i,n,item,p;
+    char k;
+
+    cout<<"Enter number of elements: ";
+    cin>>n;
+
+    cout<<"Enter array elements: ";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    cout<<"Deletion at last: "<<endl;
+
+    a[n-1]=NULL;
+    n--;
+
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<"Number of elements: "<<n<<endl;
+}
+
+##########deletion at middle###########
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a[10];
+    int i,n,item,p;
+    char k;
+
+    cout<<"Enter number of elements: ";
+    cin>>n;
+
+    cout<<"Enter array elements: ";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    cout<<"Deletion at middle: "<<endl;
+
+    cout<<"Enter index number: ";
+    cin>>p;
+
+    for(i=p;i<n-1;i++)
+    {
+        a[i]=a[i+1];
+    }
+    n--;
+
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<"Number of elements: "<<n<<endl;
+}
+
+##########Deletion at First#######
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a[10];
+    int i,n,item,p;
+    char k;
+
+    cout<<"Enter number of elements: ";
+    cin>>n;
+
+    cout<<"Enter array elements: ";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    cout<<"Deletion at first: "<<endl;
+
+    for(i=0;i<n-1;i++)
+    {
+        a[i]=a[i+1];
+    }
+    n--;
+
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<"Number of elements: "<<n<<endl;
+}

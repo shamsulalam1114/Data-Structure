@@ -1,0 +1,31 @@
+void insurtdatamiddle(int item)
+{
+    nodeptr node = new doubleLinklist;
+    node->data=item;
+    node->next=NULL;
+    node->prev=NULL;
+    int n;
+    cout<<"\nAfter which value you went to insert: ";
+    cin>>n;
+    nodeptr pq=head, dq;
+    while(pq->data!=n&&pq->next!=NULL)
+    {
+        pq=pq->next;
+    }
+    dq=pq->next;
+    cout<<"!!!!!!!!THE DQ DATA IS "<<dq->data<<" !!!!!!!!"<<endl;
+    if(pq->data==n)
+    {
+        pq->next=node;
+        node->prev=pq;
+        dq->prev=node;
+        node->next=dq;
+    }
+    else
+    {
+        cout<<"\n\n!!!!Node not found!!!!!"<<endl;
+    }
+    cout<<endl;
+    cout<<endl;
+
+}

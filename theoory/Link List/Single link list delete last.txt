@@ -1,0 +1,11 @@
+void deleteLast()
+{
+    nodeptr p=head,dp;
+    while(p->next->next!=NULL)
+    {
+        p=p->next;
+    }
+    dp=p->next;
+    p->next=NULL;
+    delete dp;
+}

@@ -1,0 +1,12 @@
+void deleteMiddle(int value)
+{
+    nodeptr p=head,dp;
+    while(p->next->a!=value&&p->next!=NULL)
+    {
+        p=p->next;
+    }
+    dp=p->next;
+    p->next=dp->next;
+    delete dp;
+}
+

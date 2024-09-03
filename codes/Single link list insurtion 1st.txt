@@ -1,0 +1,10 @@
+void insertFirst(int item)
+{
+    nodeptr node= new List;
+    node->a=item;
+    node->next=NULL;
+
+    node->next=head;
+    head=node;
+ 
+}

@@ -1,0 +1,8 @@
+void cutlastnode()
+{
+    nodeptr pw=tail;
+    tail=tail->prev;
+    tail->next=NULL;
+    delete pw;
+
+}

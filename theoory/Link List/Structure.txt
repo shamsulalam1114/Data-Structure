@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+
+struct Student
+{
+    int id;
+    string name;
+    int marks;
+};
+
+int main()
+{
+    Student s[5];
+    int i,hv,c=0;
+    string nm,findName;
+    for(i=0;i<5;i++)
+    {
+        cout<<"Enter ID for student "<<i+1<<" : ";
+        cin>>s[i].id;
+        cout<<"Enter Name for student "<<i+1<<" : ";
+        cin>>s[i].name;
+        cout<<"Enter Marks for student "<<i+1<<" : ";
+        cin>>s[i].marks;
+    }
+
+    cout<<endl;
+    for(i=0;i<5;i++)
+    {
+        cout<<"Details of Student "<<i+1<<endl;
+        cout<<"Id = "<<s[i].id<<endl;
+        cout<<"Name = "<<s[i].name<<endl;
+        cout<<"Marks = "<<s[i].marks<<endl;
+    }
+    cout<<endl;
+
+    hv=s[0].marks;
+    for(i=0;i<5;i++)
+    {
+        if(hv<s[i].marks)
+        {
+            hv=s[i].marks;
+            nm=s[i].name;
+        }
+    }
+    cout<<"Highest Value: "<<hv<<endl;
+    cout<<"Name: "<<nm<<endl;
+
+    cout<<endl;
+    cout<<"Enter Name: ";
+    cin>>findName;
+    for(i=0;i<5;i++)
+    {
+        if(findName==s[i].name)
+        {
+            cout<<s[i].id<<endl;
+            cout<<s[i].name<<endl;
+            cout<<s[i].marks<<endl;
+            c=1;
+        }
+    }
+    if(c==0)
+    {
+        cout<<"Content is not found"<<endl;
+    }
+
+}

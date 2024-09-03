@@ -1,0 +1,177 @@
+#include <iostream>
+using namespace std;
+
+typedef struct tree
+{
+    int data;
+    struct tree *left, *right;
+}*node;
+
+node root, ptr;
+
+void makeRoot(int item)
+{
+    root=new tree;
+    root->data=item;
+    root->left=NULL;
+    root->right=NULL;
+}
+
+void makeNode(int item)
+{
+    node np=new tree;
+    np->data=item;
+    np->left=NULL;
+    np->right=NULL;
+
+    ptr=root;
+    while(ptr!=NULL)
+    {
+        if(ptr->data==item)
+        {
+            cout<<"Duplicate value cannot be inserted"<<endl;
+            break;
+        }
+        else if(ptr->data>item)
+        {
+            if(ptr->left==NULL)
+            {
+                ptr->left=np;
+                break;
+            }
+            else
+            {
+                ptr=ptr->left;
+            }
+        }
+        else if(ptr->data<item)
+        {
+            if(ptr->right==NULL)
+            {
+                ptr->right=np;
+                break;
+            }
+            else
+            {
+                ptr=ptr->right;
+            }
+        }
+    }
+}
+
+void inorder(node p)
+{
+    if(p!=NULL)
+    {
+        inorder(p->left);
+        cout<<p->data<<" ";
+        inorder(p->right);
+    }
+}
+
+void preorder(node p)
+{
+    if(p!=NULL)
+    {
+       cout<<p->data<<" ";
+        preorder(p->left);
+        preorder(p->right);
+    }
+}
+
+void postorder(node p)
+{
+    if(p!=NULL)
+    {
+        postorder(p->left);
+        postorder(p->right);
+        cout<<p->data<<" ";
+    }
+}
+
+void insertNode(int item)
+{
+    makeNode(item);
+    cout<<"Inorder Traversal: "<<endl;
+    inorder(root);
+}
+
+void searchNode(int item)
+{
+    ptr=root;
+    while(ptr!=NULL)
+    {
+        if(ptr->data==item)
+        {
+            cout<<"Found"<<endl;
+            break;
+        }
+        else if(ptr->data>item)
+        {
+            if(ptr->left==NULL)
+            {
+                cout<<"Not Found"<<endl;
+                break;
+            }
+            else
+            {
+                ptr=ptr->left;
+            }
+        }
+        else if(ptr->data<item)
+        {
+            if(ptr->right==NULL)
+            {
+                cout<<"Not Found"<<endl;
+                break;
+            }
+            else
+            {
+                ptr=ptr->right;
+            }
+        }
+    }
+
+}
+
+int main()
+{
+    root=NULL;
+    int x;
+    while(1)
+    {
+        cout<<"Enter data or 0 for exit: ";
+        cin>>x;
+        if(x==0)
+            break;
+        else
+        {
+            if(root==NULL)
+            {
+                makeRoot(x);
+            }
+            else
+            {
+                makeNode(x);
+            }
+        }
+    }
+
+    cout<<"Inorder Traversal: "<<endl;
+    inorder(root);
+    cout<<endl;
+    cout<<"Preorder Traversal: "<<endl;
+    preorder(root);
+    cout<<endl;
+    cout<<"Postorder Traversal: "<<endl;
+    postorder(root);
+
+    cout<<"Insertion: "<<endl;
+    cout<<"Enter value to insert: ";
+    cin>>x;
+    insertNode(x);
+
+    cout<<"Enter node to search: ";
+    cin>>x;
+    searchNode(x);
+}

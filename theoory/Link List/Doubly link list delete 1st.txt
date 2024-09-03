@@ -1,0 +1,11 @@
+void deletion1st()
+{
+    nodeptr pq=head;
+
+    head=head->next;
+    head->prev=NULL;
+
+    delete pq;
+
+
+}

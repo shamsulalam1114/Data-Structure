@@ -1,0 +1,23 @@
+void insertMiddle(int item)
+{
+    int value;
+    nodeptr node= new List;
+    node->a=item;
+    node->next=NULL;
+
+    cout<<"After which node you want to insert: ";
+    cin>>value;
+    nodeptr p=head;
+    while(p->a!=value&&p->next!=NULL)
+    {
+        p=p->next;
+    }
+    if(p->a==value)
+    {
+        node->next=p->next;
+        p->next=node;
+        Count++;
+    }
+    else
+        cout<<"Not Found"<<endl;
+}

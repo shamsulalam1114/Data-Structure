@@ -1,0 +1,14 @@
+void insertLast(int item)
+{
+    nodeptr node=new List;
+    node->a=item;
+    node->next=NULL;
+    nodeptr p= head;
+
+    while(p->next!=NULL)
+    {
+        p=p->next;
+    }
+    p->next=node;
+}
+

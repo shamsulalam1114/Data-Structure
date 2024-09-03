@@ -1,0 +1,11 @@
+void addlastdata(int item)
+{
+    nodeptr node = new doubleLinklist;
+    node->data=item;
+    node->next=NULL;
+    node->prev=NULL;
+
+    tail->next=node;
+    node->prev=tail;
+    tail=node;
+}

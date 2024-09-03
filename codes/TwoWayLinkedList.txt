@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+typedef struct List
+{
+    int a;
+    struct List *prev,*next;
+}*nodeptr;
+
+nodeptr head=NULL,tail=NULL;
+nodeptr ptr;
+
+void createList(int item)
+{
+   nodeptr node= new List;
+   node->a=item;
+   node->prev=NULL;
+   node->next=NULL;
+
+   if(head==NULL)
+   {
+       head=node;
+    }
+   else
+   {
+       node->prev=ptr;
+       ptr->next=node;
+    }
+    tail=node;
+    ptr=node;
+}
+
+void printFromFirst(nodeptr p)
+{
+    while(p!=NULL)
+    {
+        cout<<p->a<<" ";
+        p=p->next;
+    }
+}
+
+void printFromLast(nodeptr p)
+{
+    while(p!=NULL)
+    {
+        cout<<p->a<<" ";
+        p=p->prev;
+    }
+}
+void insertFirst(int item)
+{
+   nodeptr node= new List;
+   node->a=item;
+   node->prev=NULL;
+   node->next=NULL;
+
+   head->prev=node;
+   node->next=head;
+   head=node;
+}
+
+int main()
+{
+    int n,i,v;
+    cout<<"Enter number of items: ";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cout<<"Enter value: ";
+        cin>>v;
+        createList(v);
+    }
+    cout<<"Traversing from First: "<<endl;
+    printFromFirst(head);
+    cout<<endl;
+    cout<<"Traversing from Last: "<<endl;
+    printFromLast(tail);
+    cout<<endl;
+    cout<<"Insertion at First:"<<endl;
+    cout<<"Enter value: ";
+    cin>>v;
+    insertFirst(v);
+    printFromFirst(head);
+    cout<<endl;
+    printFromLast(tail);
+
+}

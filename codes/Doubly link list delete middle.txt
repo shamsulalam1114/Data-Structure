@@ -1,0 +1,24 @@
+void middlenodecut()
+{
+    nodeptr pu=head,dq,cu;
+    int v;
+    cout<<"  which node you went to delete: ";
+    cin>>v;
+    while(pu->next->data!=v&&pu->next!=NULL)
+    {
+        pu=pu->next;
+    }
+    if(pu->next->data==v)
+    {
+        dq=pu->next;
+        pu->next=pu->next->next;
+        cu=dq->next;
+        delete dq;
+        cu->prev=pu;
+    }
+    else
+    {
+        cout<<"!!!!!!Node not Found !!!!!!!!!!"<<endl;
+    }
+
+}
